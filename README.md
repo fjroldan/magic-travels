@@ -1,2 +1,3 @@
 # magic-travels
-Magic Travels is an innovative travel management platform offering personalized experiences. Using AI and data analytics, it streamlines trip planning, booking, and management. With options for transport, accommodation, and activities, it provides optimized itineraries, real-time assistance, and user reviews for a seamless travel experience.
+
+**Magic Travels** es una innovadora plataforma de gestión de viajes que ofrece experiencias personalizadas. Utilizando IA y análisis de datos, optimiza la planificación, reserva y gestión de viajes. Con opciones de transporte, alojamiento y actividades, brinda itinerarios optimizados, asistencia en tiempo real y reseñas de usuarios para una experiencia de viaje sin contratiempos.
