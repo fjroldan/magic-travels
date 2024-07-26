@@ -73,11 +73,11 @@ Estos elementos son fundamentales para asegurar que el proyecto se desarrolle de
 
 A continuación, se especifican las historias de usuario identificadas:
 
-1. **Módulo de Administración de Usuarios** :
-   1.1 **Registro de Usuario** : Como usuario nuevo, quiero registrarme en la aplicación para poder acceder a sus funcionalidades.
-   1.2 **Autenticación de Usuario** : Como usuario registrado, quiero poder iniciar sesión en la aplicación para acceder a mi cuenta de manera segura.
-   1.3 **Autorización de Roles** : Como administrador, quiero asignar diferentes roles a los usuarios para controlar el acceso a las distintas funcionalidades de la aplicación.
-   1.4 **Recuperación de Contraseña** : Como usuario, quiero poder recuperar mi contraseña en caso de haberla olvidado para no perder el acceso a mi cuenta.
+1. **Módulo de Administración de Usuarios** :<br>
+   1.1 **Registro de Usuario** : Como usuario nuevo, quiero registrarme en la aplicación para poder acceder a sus funcionalidades.<br>
+   1.2 **Autenticación de Usuario** : Como usuario registrado, quiero poder iniciar sesión en la aplicación para acceder a mi cuenta de manera segura.<br>
+   1.3 **Autorización de Roles** : Como administrador, quiero asignar diferentes roles a los usuarios para controlar el acceso a las distintas funcionalidades de la aplicación.<br>
+   1.4 **Recuperación de Contraseña** : Como usuario, quiero poder recuperar mi contraseña en caso de haberla olvidado para no perder el acceso a mi cuenta.<br>
 2. **Módulo de Gestión de Tareas** :
    2.1 **Crear Tareas** : Como usuario, quiero poder crear nuevas tareas para gestionar mis actividades.
    2.2 **Actualizar Tareas** : Como usuario, quiero poder actualizar el estado y los detalles de las tareas existentes para mantener un seguimiento preciso de mi progreso.
