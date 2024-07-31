@@ -12,7 +12,7 @@ COPY pom.xml .
 COPY src ./src
 
 # Build the application
-RUN mvn clean package
+#RUN mvn clean package
 
 # Copy the built JAR file from the target directory
 COPY target/tasks-ms-0.0.1-SNAPSHOT.jar app.jar

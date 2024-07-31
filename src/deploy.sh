@@ -4,4 +4,4 @@
 source .env
 
 # Build the Docker image
-docker compose up
+docker compose up --build

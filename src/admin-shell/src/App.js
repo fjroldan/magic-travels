@@ -5,6 +5,7 @@
 import './App.css';
 import React from 'react';
 import GetUsers from "./modules/GetUsers";
+import GetTasks from "./modules/GetTasks";
 import EditUsers from './modules/EditUsers';
 import { BrowserRouter as Router, Routes, Route, useNavigate } from 'react-router-dom';
 
@@ -31,7 +32,7 @@ function AdminUsers() {
 
 // Function to render the EditUsers component
 function ManageTasks() {
-  return <div>Manage Tasks Page</div>;
+  return <GetTasks />;
 }
 
 // Function to render the ManageTasks component
