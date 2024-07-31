@@ -4,7 +4,6 @@ import { APP_BASE_HREF } from '@angular/common';
 import { AppComponent } from './app.component';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
-
 import { RouterModule, Routes } from '@angular/router'; 
 
 const routes: Routes = [

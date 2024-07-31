@@ -22,6 +22,7 @@ const GetUsers = () => {
   // Returning the component
   return (
     <div>
+      <button className="home-btn" onClick={() => navigate('/')}>Home</button>
       <div ref={ref} />
       <button className="button" onClick={() => navigate('/edit-users')}>Create User</button>
     </div>

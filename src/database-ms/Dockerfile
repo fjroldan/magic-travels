@@ -1,3 +1,4 @@
+# File: Dockerfile
 # Description: Dockerfile for the database container
 
 # Use the official postgres image

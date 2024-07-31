@@ -1,9 +1,14 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
+// File: src/admin-shell/src/bootstrap.js
+// Description: File to bootstrap the application.
+
+// Importing the necessary libraries
 import './index.css';
 import App from './App';
+import React from 'react';
+import ReactDOM from 'react-dom';
 import reportWebVitals from './reportWebVitals';
 
+// Rendering the App component
 ReactDOM.render(
   <React.StrictMode>
     <App />

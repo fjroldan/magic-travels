@@ -2,12 +2,26 @@
 # Services of the docker-compose file
 services:
 
+  # Service for the database
+  db-svc:
+    container_name: db-svc
+    build: database-ms
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_PASSWORD: postgres
+      NAME_DB: ${NAME_DB}
+      USER_DB: ${USER_DB}
+      PASS_DB: ${PASS_DB}
+
   # Define users ms service
   users-ms-svc:
     container_name: users-ms-svc
     build: users-ms
     ports:
       - "7071:8080"
+    depends_on:
+      - db-svc
 
   # Define task ms service
   tasks-ms-svc:
@@ -15,17 +29,14 @@ services:
     build: tasks-ms
     ports:
       - "7072:8080"
-      
+    depends_on:
+      - db-svc
+
   # Define reports ms service
   reports-ms-svc:
     container_name: reports-ms-svc
     build: reports-ms
     ports:
       - "7073:8080"
-  
-  # Define graph ms service
-  graph-ms-svc:
-    container_name: graph-ms-svc
-    build: graph-ms
-    ports:
-      - "7074:8080"
+    depends_on:
+      - db-svc

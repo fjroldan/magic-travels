@@ -1,12 +1,15 @@
-import { Component } from '@angular/core';
+// File: app.component.ts
+// Description: This file is the main component file for the EditUsers microfrontend. It contains the logic for the EditUsers microfrontend.
 
+// Importing required modules.
 import { User } from './user';
+import { filter } from 'rxjs/operators';
+import { Component } from '@angular/core';
 import { UserService } from './user.service';
+import { NavigationEnd } from '@angular/router';
 import { ActivatedRoute, Router } from '@angular/router';
 
-import { NavigationEnd } from '@angular/router';
-import { filter } from 'rxjs/operators';
-
+// Component decorator.
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -14,8 +17,10 @@ import { filter } from 'rxjs/operators';
 })
 export class AppComponent {
   
+  // Component
   title = 'EditUsers';
 
+  // User object.
   user: User = {
     id: 0,
     username: '',
@@ -25,15 +30,17 @@ export class AppComponent {
     phone: ''
   };
 
+  // Error message.
   errorMessage: string = '';
 
+  // Constructor.
   constructor(
     private userService: UserService,
     private route: ActivatedRoute,
     private router: Router
   ) {}
 
-
+  // OnInit lifecycle hook.
   ngOnInit(): void {
     this.router.events.pipe(
       filter(event => event instanceof NavigationEnd)
@@ -51,6 +58,7 @@ export class AppComponent {
     });
   }
 
+  // Save user.
   save(): void {
     this.userService.saveUser(this.user).subscribe(
       () => {
