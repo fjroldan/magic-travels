@@ -15,6 +15,7 @@ module.exports = {
                         getUsers: "getUsers@http://localhost:3001/remoteEntry.js",
                         editUsers:"editUsers@http://localhost:3002/remoteEntry.js",
                         getTasks:"getTasks@http://localhost:3003/remoteEntry.js",
+                        editTasks:"editTasks@http://localhost:3004/remoteEntry.js",
                       },
                       shared:{
                           ...deps,

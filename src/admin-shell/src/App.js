@@ -7,6 +7,7 @@ import React from 'react';
 import GetUsers from "./modules/GetUsers";
 import GetTasks from "./modules/GetTasks";
 import EditUsers from './modules/EditUsers';
+import EditTasks from './modules/EditTasks';
 import { BrowserRouter as Router, Routes, Route, useNavigate } from 'react-router-dom';
 
 // Main component of the application
@@ -48,6 +49,7 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/admin-users" element={<AdminUsers />} />
         <Route path="/edit-users/:id?" element={<EditUsers />} />
+        <Route path="/edit-tasks/:id?" element={<EditTasks />} />
         <Route path="/manage-tasks" element={<ManageTasks />} />
         <Route path="/manage-reports" element={<ManageReports />} />
       </Routes>

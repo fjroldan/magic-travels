@@ -49,6 +49,7 @@ function App() {
             <th>Task Name</th>
             <th>Description</th>
             <th>State</th>
+            <th>Actions</th>
           </tr>
         </thead>
         <tbody>

@@ -14,7 +14,7 @@ export const fetchTasks = async () => {
     const response = await axios.get(`${API_BASE_URL}/api/tasks`);
     return response.data.map(task => new Task(
       task.id,
-      task.task_name,
+      task.taskName,
       task.description,
       task.state
     ));
