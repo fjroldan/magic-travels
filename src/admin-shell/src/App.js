@@ -8,6 +8,8 @@ import GetUsers from "./modules/GetUsers";
 import GetTasks from "./modules/GetTasks";
 import EditUsers from './modules/EditUsers';
 import EditTasks from './modules/EditTasks';
+import GetReports from "./modules/GetReports";
+import EditReports from './modules/EditReports';
 import { BrowserRouter as Router, Routes, Route, useNavigate } from 'react-router-dom';
 
 // Main component of the application
@@ -38,7 +40,7 @@ function ManageTasks() {
 
 // Function to render the ManageTasks component
 function ManageReports() {
-  return <div>Manage Reports Page</div>;
+  return <GetReports />;
 }
 
 // Main component of the application
@@ -50,6 +52,7 @@ function App() {
         <Route path="/admin-users" element={<AdminUsers />} />
         <Route path="/edit-users/:id?" element={<EditUsers />} />
         <Route path="/edit-tasks/:id?" element={<EditTasks />} />
+        <Route path="/edit-reports/:id?" element={<EditReports />} />
         <Route path="/manage-tasks" element={<ManageTasks />} />
         <Route path="/manage-reports" element={<ManageReports />} />
       </Routes>
