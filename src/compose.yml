@@ -1,0 +1,31 @@
+# -------------------------------------------
+# Services of the docker-compose file
+services:
+
+  # Define users ms service
+  users-ms-svc:
+    container_name: users-ms-svc
+    build: users-ms
+    ports:
+      - "7071:8080"
+
+  # Define task ms service
+  tasks-ms-svc:
+    container_name: tasks-ms-svc
+    build: tasks-ms
+    ports:
+      - "7072:8080"
+      
+  # Define reports ms service
+  reports-ms-svc:
+    container_name: reports-ms-svc
+    build: reports-ms
+    ports:
+      - "7073:8080"
+  
+  # Define graph ms service
+  graph-ms-svc:
+    container_name: graph-ms-svc
+    build: graph-ms
+    ports:
+      - "7074:8080"
