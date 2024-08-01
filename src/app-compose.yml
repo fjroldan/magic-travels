@@ -1,0 +1,84 @@
+# File: compose.yml
+# Description: This file contains the services that will be used in the project.
+
+#------------------------------------------
+# Services of the docker-compose file
+services:
+
+  #----------------------------------------
+  # Define back-end services
+  #----------------------------------------
+
+  # Define users ms service
+  users-ms-svc:
+    container_name: users-ms-svc
+    build: users-ms
+    ports:
+      - "7071:8080"
+    
+  # Define task ms service
+  tasks-ms-svc:
+    container_name: tasks-ms-svc
+    build: tasks-ms
+    ports:
+      - "7072:8080"
+    
+  # Define reports ms service
+  reports-ms-svc:
+    container_name: reports-ms-svc
+    build: reports-ms
+    ports:
+      - "7073:8080"
+
+  #----------------------------------------
+  # Define front-end services
+  #----------------------------------------
+
+  # Define shell admin mf service
+  shell-admin-svc:
+    container_name: shell-mf-svc
+    build: admin-shell
+    ports:
+      - "3000:80"
+
+  # Define get users mf service
+  get-users-svc:
+    container_name: get-users-mf-svc
+    build: get-users-mf
+    ports:
+      - "3001:80"
+    
+  # Define edit users mf service
+  edit-users-svc:
+    container_name: edit-users-mf-svc
+    build: edit-users-mf
+    ports:
+      - "3002:80"
+
+  # Define get tasks mf service
+  get-tasks-svc:
+    container_name: get-tasks-mf-svc
+    build: get-tasks-mf
+    ports:
+      - "3003:80"
+  
+  # Define edit tasks mf service
+  edit-tasks-svc:
+    container_name: edit-tasks-mf-svc
+    build: edit-tasks-mf
+    ports:
+      - "3004:80"
+  
+  # Define get reports mf service
+  get-reports-svc:
+    container_name: get-reports-mf-svc
+    build: get-reports-mf
+    ports:
+      - "3005:80"
+  
+  # Define edit reports mf service
+  edit-reports-svc:
+    container_name: edit-reports-mf-svc
+    build: edit-reports-mf
+    ports:
+      - "3006:80"

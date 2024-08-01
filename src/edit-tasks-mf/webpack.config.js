@@ -11,8 +11,9 @@ sharedMappings.register(
 module.exports = {
   output: {
     uniqueName: "editTasks",
-    publicPath: "auto",
-    scriptType:'text/javascript'
+    publicPath: "http://localhost:3004/",
+    scriptType:'text/javascript',
+    sourceMapFilename: "[name].js.map",
   },
   optimization: {
     runtimeChunk: false
@@ -28,7 +29,7 @@ module.exports = {
   plugins: [
     new ModuleFederationPlugin({
         name: "editTasks",
-        filename: "remoteEntry.js",
+        filename: "remoteEditTasks.js",
         exposes: {
             './EditTasksModule':'./src/loadApp.ts'
         },
@@ -36,10 +37,10 @@ module.exports = {
           "@angular/core": { singleton: true, strictVersion: true, requiredVersion: 'auto' },
           "@angular/common": { singleton: true, strictVersion: true, requiredVersion: 'auto' },
           "@angular/common/http": { singleton: true, strictVersion: true, requiredVersion: 'auto' },
-          "@angular/router": { singleton: true, strictVersion: true, requiredVersion: 'auto' },
           ...sharedMappings.getDescriptors()
         })
     }),
     sharedMappings.getPlugin()
   ],
+  devtool: 'source-map'
 };

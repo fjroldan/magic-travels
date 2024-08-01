@@ -13,16 +13,24 @@ function App() {
   const [error, setError] = useState(null);
 
   useEffect(() => {
+    let isMounted = true;
     const loadReports = async () => {
       try {
         const reportsData = await fetchReports();
-        setReports(reportsData);
+        if (isMounted) {
+          setReports(reportsData);
+        }
       } catch (error) {
         console.error('Error loading reports:', error);
-        setError('Error loading reports. Please try again later.');
+        if (isMounted) {
+          setError('Error loading reports. Please try again later.');
+        }
       }
     };
     loadReports();
+    return () => {
+      isMounted = false;
+    };
   }, []);
 
   const handleDelete = async (reportId) => {

@@ -4,19 +4,22 @@
 // Importing required modules.
 import { User } from './user';
 import { filter } from 'rxjs/operators';
-import { Component } from '@angular/core';
+import { Component, ElementRef } from '@angular/core';
 import { UserService } from './user.service';
 import { NavigationEnd } from '@angular/router';
-import { ActivatedRoute, Router } from '@angular/router';
+//import { ActivatedRoute, Router } from '@angular/router';
 
 // Component decorator.
 @Component({
-  selector: 'app-root',
+  selector: 'app-edit-users',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
   
+  id = '';
+  userId: string='';
+
   // Component
   title = 'EditUsers';
 
@@ -36,13 +39,25 @@ export class AppComponent {
   // Constructor.
   constructor(
     private userService: UserService,
-    private route: ActivatedRoute,
-    private router: Router
+    private el: ElementRef
+    //private route: ActivatedRoute,
+    //private router: Router
   ) {}
 
   // OnInit lifecycle hook.
   ngOnInit(): void {
-    this.router.events.pipe(
+    // Listening to the custom event from React
+    document.addEventListener('setId', (event: Event) => {
+      // Use type assertion to cast the event to CustomEvent
+      const customEvent = event as CustomEvent;
+      this.id = customEvent.detail;
+      this.handleIdChange(this.id); // Your logic to handle the ID
+    });
+
+    // Access the custom attribute passed from React
+    //this.userId = this.el.nativeElement.getAttribute('user-id');
+    //console.log('User ID:', this.userId);
+    /*this.router.events.pipe(
       filter(event => event instanceof NavigationEnd)
     ).subscribe(() => {
       const currentUrl = this.router.url;
@@ -55,7 +70,12 @@ export class AppComponent {
           this.userService.getUser(id).subscribe(user => this.user = user);
         }
       }
-    });
+    });*/
+  }
+
+  handleIdChange(id: string) {
+    // Logic to handle the ID change
+    console.log('***** User ID:', id);
   }
 
   // Save user.

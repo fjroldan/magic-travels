@@ -1,0 +1,18 @@
+# File: compose.yml
+# Description: This file contains the db service that will be used in the project.
+
+# -------------------------------------------
+# Service of the docker-compose file
+services:
+
+  # Service for the database
+  db-svc:
+    container_name: db-svc
+    build: database-ms
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_PASSWORD: postgres
+      NAME_DB: ${NAME_DB}
+      USER_DB: ${USER_DB}
+      PASS_DB: ${PASS_DB}

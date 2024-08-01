@@ -3,15 +3,12 @@
 
 // Importing required modules.
 import { Task } from './task';
-import { filter } from 'rxjs/operators';
 import { Component } from '@angular/core';
 import { TaskService } from './task.service';
-import { NavigationEnd } from '@angular/router';
-import { ActivatedRoute, Router } from '@angular/router';
 
 // Component decorator.
 @Component({
-  selector: 'app-root',
+  selector: 'app-edit-tasks',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
@@ -33,27 +30,11 @@ export class AppComponent {
 
   // Constructor.
   constructor(
-    private taskService: TaskService,
-    private route: ActivatedRoute,
-    private router: Router
+    private taskService: TaskService
   ) {}
 
   // OnInit lifecycle hook.
   ngOnInit(): void {
-    this.router.events.pipe(
-      filter(event => event instanceof NavigationEnd)
-    ).subscribe(() => {
-      const currentUrl = this.router.url;
-      const match = currentUrl.match(/\/edit-tasks\/(\d+)/);
-      if (match) {
-        const taskId = match[1];
-        const id = Number(taskId);
-        console.log(" Task ID", id);
-        if (id != 0) {
-          this.taskService.getTask(id).subscribe(task => this.task = task);
-        }
-      }
-    });
   }
 
   // Save task.

@@ -3,15 +3,13 @@
 
 // Importing the necessary libraries and hooks
 import "./GetTasks.css";
-import { useNavigate } from 'react-router-dom';
 import { mount } from "getTasks/GetTasksModule";
 import React, { useEffect, useRef } from "react";
 
 // Function to render the GetTasks component
-const GetTasks = () => {
+const GetTasks = ({navigateHander}) => {
 
   // Creating the reference for the component
-  const navigate = useNavigate();
   const ref = useRef(null);
 
   // Mounting the component
@@ -22,9 +20,9 @@ const GetTasks = () => {
   // Returning the component
   return (
     <div>
-      <button className="home-btn" onClick={() => navigate('/')}>Home</button>
+      <button className="home-btn" onClick={() => navigateHander('home')}>Home</button>
       <div ref={ref} />
-      <button className="button" onClick={() => navigate('/edit-tasks')}>Create Task</button>
+      <button className="button" onClick={() => navigateHander('editTasks')}>Create Task</button>
     </div>
   );
 };

@@ -13,16 +13,24 @@ function App() {
   const [error, setError] = useState(null);
 
   useEffect(() => {
+    let isMounted = true;
     const loadTasks = async () => {
       try {
         const tasksData = await fetchTasks();
-        setTasks(tasksData);
+        if (isMounted) {
+          setTasks(tasksData);
+        }
       } catch (error) {
         console.error('Error loading tasks:', error);
-        setError('Error loading tasks. Please try again later.');
+        if (isMounted) {
+          setError('Error loading tasks. Please try again later.');
+        }
       }
     };
     loadTasks();
+    return () => {
+      isMounted = false;
+    };
   }, []);
 
   const handleDelete = async (taskId) => {

@@ -1,7 +1,25 @@
+// File: craco.config.js
+// Description: Call the ModuleFederationPlugin to create a federated module for the admin shell application.
+
+// Import the ModuleFederationPlugin
 const ModuleFederationPlugin = require('webpack').container.ModuleFederationPlugin;
 const deps = require('./package.json').dependencies;
 
+// Import the dotenv package
+const dotenv = require('dotenv');
+dotenv.config();
+
+// Access environment variables
+const APP_GET_USERS = process.env.REACT_APP_GET_USERS;
+const APP_EDIT_USERS = process.env.REACT_APP_EDIT_USERS;
+const APP_GET_TASKS = process.env.REACT_APP_GET_TASKS;
+const APP_EDIT_TASKS = process.env.REACT_APP_EDIT_TASKS;
+const APP_GET_REPORTS = process.env.REACT_APP_GET_REPORTS;
+const APP_EDIT_REPORTS = process.env.REACT_APP_EDIT_REPORTS;
+
+// Export the craco configuration
 module.exports = {
+    stats: 'verbose',
     plugins: [
         {
             plugin: {
@@ -12,12 +30,10 @@ module.exports = {
                     new ModuleFederationPlugin({
                       name: "app",
                       remotes: {
-                        getUsers: "getUsers@http://localhost:3001/remoteEntry.js",
-                        editUsers:"editUsers@http://localhost:3002/remoteEntry.js",
-                        getTasks:"getTasks@http://localhost:3003/remoteEntry.js",
-                        editTasks:"editTasks@http://localhost:3004/remoteEntry.js",
-                        getReports:"getReports@http://localhost:3005/remoteEntry.js",
-                        editReports:"editReports@http://localhost:3006/remoteEntry.js",
+                        getUsers: `getUsers@${APP_GET_USERS}`,
+                        editUsers: `editUsers@${APP_EDIT_USERS}`,
+                        getTasks: `getTasks@${APP_GET_TASKS}`,
+                        getReports: `getReports@${APP_GET_REPORTS}`,
                       },
                       shared:{
                           ...deps,

@@ -11,8 +11,9 @@ sharedMappings.register(
 module.exports = {
   output: {
     uniqueName: "editReports",
-    publicPath: "auto",
-    scriptType:'text/javascript'
+    publicPath: "http://localhost:3006/",
+    scriptType:'text/javascript',
+    sourceMapFilename: "[name].js.map",
   },
   optimization: {
     runtimeChunk: false
@@ -28,7 +29,7 @@ module.exports = {
   plugins: [
     new ModuleFederationPlugin({
         name: "editReports",
-        filename: "remoteEntry.js",
+        filename: "remoteEditReports.js",
         exposes: {
             './EditReportsModule':'./src/loadApp.ts'
         },
@@ -36,10 +37,10 @@ module.exports = {
           "@angular/core": { singleton: true, strictVersion: true, requiredVersion: 'auto' },
           "@angular/common": { singleton: true, strictVersion: true, requiredVersion: 'auto' },
           "@angular/common/http": { singleton: true, strictVersion: true, requiredVersion: 'auto' },
-          "@angular/router": { singleton: true, strictVersion: true, requiredVersion: 'auto' },
           ...sharedMappings.getDescriptors()
         })
     }),
     sharedMappings.getPlugin()
   ],
+  devtool: 'source-map'
 };

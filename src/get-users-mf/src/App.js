@@ -13,16 +13,24 @@ function App() {
   const [error, setError] = useState(null);
 
   useEffect(() => {
+    let isMounted = true; 
     const loadUsers = async () => {
       try {
         const usersData = await fetchUsers();
-        setUsers(usersData);
+        if (isMounted) {
+          setUsers(usersData);
+        }
       } catch (error) {
         console.error('Error loading users:', error);
-        setError('Error loading users. Please try again later.');
+        if (isMounted) {
+          setError('Error loading users. Please try again later.');
+        }
       }
     };
     loadUsers();
+    return () => {
+      isMounted = false;
+    };
   }, []);
 
   const handleDelete = async (userId) => {

@@ -4,4 +4,4 @@
 source .env
 
 # Build the Docker image
-docker compose up --build
+docker compose -f db-compose.yml up --build

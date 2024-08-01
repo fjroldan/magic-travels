@@ -3,15 +3,13 @@
 
 // Importing the necessary libraries and hooks
 import "./GetReports.css";
-import { useNavigate } from 'react-router-dom';
 import { mount } from "getReports/GetReportsModule";
 import React, { useEffect, useRef } from "react";
 
 // Function to render the GetReports component
-const GetReports = () => {
+const GetReports = ({navigateHander}) => {
 
   // Creating the reference for the component
-  const navigate = useNavigate();
   const ref = useRef(null);
 
   // Mounting the component
@@ -22,9 +20,9 @@ const GetReports = () => {
   // Returning the component
   return (
     <div>
-      <button className="home-btn" onClick={() => navigate('/')}>Home</button>
+      <button className="home-btn" onClick={() => navigateHander('home')}>Home</button>
       <div ref={ref} />
-      <button className="button" onClick={() => navigate('/edit-reports')}>Create Report</button>
+      <button className="button" onClick={() => navigateHander('editReports')}>Create Report</button>
     </div>
   );
 };

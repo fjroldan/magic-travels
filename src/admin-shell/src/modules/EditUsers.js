@@ -3,27 +3,25 @@
 
 // Importing the necessary libraries and hooks
 import "./EditUsers.css";
-import { useNavigate } from 'react-router-dom';
+import React, { useEffect} from "react";
 import {mount} from "editUsers/EditUsersModule";
-import React, { useEffect, useRef } from "react";
 
 // Function to render the EditUsers component
-const EditUsers = () => {
-  // Creating the reference for the component
-  const ref = useRef(null);
-  const navigate = useNavigate();
-
+const EditUsers = ({navigateHander}) => {
+  
   // Mounting the component
   useEffect(() => {
-    mount();  
+    mount(); 
   }, []);
 
   // Returning the component
   return (
-    <div>
-      <button className="home-btn" onClick={() => navigate('/')}>Home</button>
-      <button className="home-btn" onClick={() => navigate('/admin-users')}>Mange Users</button>
-      <app-root></app-root>
+    <div className="app-edit-users">
+      <button className="home-btn" onClick={() => navigateHander('home')}>Home</button>
+      <button className="home-btn" onClick={() => navigateHander('getUsers')}>Mange Users</button>
+      <div>
+        <app-edit-users></app-edit-users>
+      </div>
     </div>
   );
 };
