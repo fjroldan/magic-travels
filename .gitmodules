@@ -1,3 +1,3 @@
 [submodule "src/reports-ms"]
     path = src/reports-ms
-    url = path/to/repo.git
+    url = https://github.com/crewAIInc/crewAI-examples.git
