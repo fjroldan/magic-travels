@@ -27,10 +27,13 @@ function Home({navigateHander}) {
 
 // Main component of the application
 const App = () => {
+  // Variable to store the current id
+  const [curId, setCurid] = useState(0);
   // State to manage the active component
   const [activeComponent, setActiveComponent] = useState('home');
   // Function to navigate between components named navigateHander
-  const navigateHander = (component) => {
+  const navigateHander = (component, id) => {
+    setCurid(id);
     setActiveComponent(component);
   }
   // Function to render the component based on the state
@@ -41,7 +44,7 @@ const App = () => {
       case 'getTasks':
         return <GetTasks navigateHander={navigateHander}/>;
       case 'editUsers':
-        return <EditUsers navigateHander={navigateHander} id={0}/>;
+        return <EditUsers navigateHander={navigateHander} id={curId}/>;
       case 'editTasks':
         return <EditTasks navigateHander={navigateHander}/>;
       case 'getReports':

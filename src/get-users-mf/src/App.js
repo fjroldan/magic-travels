@@ -42,9 +42,14 @@ function App() {
     }
   };
   
+  // Function to send a custom event
+  const sendCustomEvent = (data) => {
+    window.postMessage({ type: 'fromReactRemote', payload: data }, '*');
+  };
+
   const handleEdit = (id) => {
-    // Redirect to the edit-user/:id page
-    window.location.href = `/edit-users/${id}`;
+    // Sending the custom event to the module
+    sendCustomEvent({type: 'editUsers', payload: id});
   };
 
   return (

@@ -3,15 +3,38 @@
 
 // Importing the necessary libraries and hooks
 import "./EditUsers.css";
-import React, { useEffect} from "react";
+import React, { useEffect, useState} from "react";
 import {mount} from "editUsers/EditUsersModule";
 
 // Function to render the EditUsers component
-const EditUsers = ({navigateHander}) => {
-  
+const EditUsers = ({navigateHander, id}) => {
+
+  // Function to send a custom event
+  const sendCustomEvent = (data) => {
+    window.postMessage({ type: 'customEvent', payload: data }, '*');
+  };
+
   // Mounting the component
   useEffect(() => {
-    mount(); 
+    // Mounting the module
+    mount();
+    // Sending the custom event to the module
+    sendCustomEvent({type: 'editUser', payload: {id: id}});
+    // Event listener for messages from the Angular app
+    const handleMessage = (event) => {
+      if (event.data && event.data.type === 'fromAngular') {
+        console.log('Message received from Angular:', event.data.payload); 
+        const result = event.data.payload.payload;
+        if (result === 'success') {
+          navigateHander('getUsers');
+        }
+      }
+    };
+    window.addEventListener('message', handleMessage);
+    // Cleanup the event listener on component unmount
+    return () => {
+      window.removeEventListener('message', handleMessage);
+    };
   }, []);
 
   // Returning the component

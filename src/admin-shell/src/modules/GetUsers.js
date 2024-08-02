@@ -15,11 +15,25 @@ const GetUsers = ({navigateHander}) => {
   // Mounting the component
   useEffect(() => {
     mount(ref.current); 
+    // Event listener for messages from the Angular app
+    const handleMessage = (event) => {
+      if (event.data && event.data.type === 'fromReactRemote') {
+        console.log('Message received from React Remote:', event.data.payload); 
+        const id = event.data.payload.payload;
+        navigateHander('editUsers', id);
+      }
+    };
+    window.addEventListener('message', handleMessage);
+    // Cleanup the event listener on component unmount
+    return () => {
+      window.removeEventListener('message', handleMessage);
+    };
   }, []);
 
   // Returning the component
   return (
     <div>
+      <h3>Users</h3>
       <button className="home-btn" onClick={() => navigateHander('home')}>Home</button>
       <div ref={ref} />
       <button className="button" onClick={() => navigateHander('editUsers')}>Create User</button>

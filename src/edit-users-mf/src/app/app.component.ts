@@ -3,11 +3,8 @@
 
 // Importing required modules.
 import { User } from './user';
-import { filter } from 'rxjs/operators';
-import { Component, ElementRef } from '@angular/core';
+import { Component } from '@angular/core';
 import { UserService } from './user.service';
-import { NavigationEnd } from '@angular/router';
-//import { ActivatedRoute, Router } from '@angular/router';
 
 // Component decorator.
 @Component({
@@ -17,9 +14,6 @@ import { NavigationEnd } from '@angular/router';
 })
 export class AppComponent {
   
-  id = '';
-  userId: string='';
-
   // Component
   title = 'EditUsers';
 
@@ -38,51 +32,32 @@ export class AppComponent {
 
   // Constructor.
   constructor(
-    private userService: UserService,
-    private el: ElementRef
-    //private route: ActivatedRoute,
-    //private router: Router
+    private userService: UserService
   ) {}
+
+  // Send message to React app.
+  sendMessageToReactApp(data: any) {
+    window.parent.postMessage({ type: 'fromAngular', payload: data }, '*');
+  }
 
   // OnInit lifecycle hook.
   ngOnInit(): void {
-    // Listening to the custom event from React
-    document.addEventListener('setId', (event: Event) => {
-      // Use type assertion to cast the event to CustomEvent
-      const customEvent = event as CustomEvent;
-      this.id = customEvent.detail;
-      this.handleIdChange(this.id); // Your logic to handle the ID
-    });
-
-    // Access the custom attribute passed from React
-    //this.userId = this.el.nativeElement.getAttribute('user-id');
-    //console.log('User ID:', this.userId);
-    /*this.router.events.pipe(
-      filter(event => event instanceof NavigationEnd)
-    ).subscribe(() => {
-      const currentUrl = this.router.url;
-      const match = currentUrl.match(/\/edit-users\/(\d+)/);
-      if (match) {
-        const userId = match[1];
-        const id = Number(userId);
-        console.log(" User ID", id);
-        if (id != 0) {
-          this.userService.getUser(id).subscribe(user => this.user = user);
+    window.addEventListener('message', (event) => {
+      if (event.data && event.data.type === 'customEvent') {
+        const payload = event.data.payload.payload;
+        console.log('Received message: ', payload.id);
+        if (payload.id != 0) {
+          this.userService.getUser(payload.id).subscribe(user => this.user = user);
         }
       }
-    });*/
-  }
-
-  handleIdChange(id: string) {
-    // Logic to handle the ID change
-    console.log('***** User ID:', id);
+    });
   }
 
   // Save user.
   save(): void {
     this.userService.saveUser(this.user).subscribe(
       () => {
-        window.location.href = '/admin-users';
+        this.sendMessageToReactApp({ type: 'saveUser', payload: 'success' });
       },
       error => this.errorMessage = error
     );
