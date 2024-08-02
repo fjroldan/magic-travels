@@ -1,0 +1,23 @@
+# Description: Environment variables for docker-compose.
+
+#------------------------------------------
+# Define database environment variables.
+#------------------------------------------
+
+# APP Host IP environment variables.
+HOST_IP=localhost
+
+# DB Host IP environment variables.
+DB_HOST_IP=<IP del Host>
+
+# Database port environment variables.
+PORT_DB=5432
+
+# Database environment variables.
+NAME_DB=travelsdb
+
+# Database user environment variables.
+USER_DB=utravels
+
+# Database password environment variables.
+PASS_DB=1234

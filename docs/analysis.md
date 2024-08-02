@@ -10,6 +10,8 @@ A continuación, se presenta el detalle de análisis adelantado, iniciando con e
 
 ### Modelado
 
+[Nota: corresponde al punto 21]
+
 En el siguiente diagrama se puede apreciar el mapa conceptual adelantado, el cual permite identificar las características requeridas para el proyecto y sus respectivas relaciones:
 
 ![1722002867249](image/analysis/1722002867249.png)
@@ -73,22 +75,22 @@ Estos elementos son fundamentales para asegurar que el proyecto se desarrolle de
 
 A continuación, se especifican las historias de usuario identificadas:
 
-1. **Módulo de Administración de Usuarios** :<br>
-   1.1 **Registro de Usuario** : Como usuario nuevo, quiero registrarme en la aplicación para poder acceder a sus funcionalidades.<br>
-   1.2 **Autenticación de Usuario** : Como usuario registrado, quiero poder iniciar sesión en la aplicación para acceder a mi cuenta de manera segura.<br>
-   1.3 **Autorización de Roles** : Como administrador, quiero asignar diferentes roles a los usuarios para controlar el acceso a las distintas funcionalidades de la aplicación.<br>
-   1.4 **Recuperación de Contraseña** : Como usuario, quiero poder recuperar mi contraseña en caso de haberla olvidado para no perder el acceso a mi cuenta.<br>
-2. **Módulo de Gestión de Tareas** :<br>
-   2.1 **Crear Tareas** : Como usuario, quiero poder crear nuevas tareas para gestionar mis actividades.<br>
-   2.2 **Actualizar Tareas** : Como usuario, quiero poder actualizar el estado y los detalles de las tareas existentes para mantener un seguimiento preciso de mi progreso.<br>
-   2.3 **Eliminar Tareas** : Como usuario, quiero poder eliminar tareas que ya no son relevantes para mantener mi lista de tareas organizada.<br>
-   2.4 **Visualizar Progreso de Tareas** : Como usuario, quiero poder visualizar el progreso de mis tareas para tener una visión clara de lo que he completado y lo que aún está pendiente.<br>
-3. **Módulo de Reportes** :<br>
-   3.1 **Generación de Reportes** : Como usuario de negocios, quiero generar reportes sobre el estado y progreso de las tareas para tomar decisiones informadas.<br>
-   3.2 **Visualización de Reportes** : Como usuario, quiero visualizar los reportes generados para entender mejor los datos y las métricas clave.<br>
-   3.3 **Exportación de Reportes** : Como usuario, quiero poder exportar los reportes en diferentes formatos (por ejemplo, PDF, Excel) para compartirlos fácilmente con otros interesados.<br>
-4. **Módulo de Captura Automática de Itinerarios** :<br>
-   4.1 **Captura de Itinerarios** : Como usuario de la agencia de viajes, quiero que el sistema capture automáticamente mis itinerarios utilizando técnicas de inteligencia artificial para ahorrar tiempo y evitar errores manuales.<br>
-   4.2 **Asociación de Recursos** : Como administrador de la agencia, quiero que los itinerarios capturados se asocien automáticamente con los recursos disponibles de la organización para una gestión eficiente.<br>
-   4.3 **Notificación de Itinerarios** : Como usuario, quiero recibir notificaciones cuando mis itinerarios sean capturados y asociados correctamente para estar al tanto de mis planes de viaje.<br>
-   4.4 **Revisión y Corrección de Itinerarios** : Como usuario, quiero tener la opción de revisar y corregir los itinerarios capturados automáticamente para asegurar que toda la información es precisa.<br>
+1. **Módulo de Administración de Usuarios** :`<br>`
+   1.1 **Registro de Usuario** : Como usuario nuevo, quiero registrarme en la aplicación para poder acceder a sus funcionalidades.`<br>`
+   1.2 **Autenticación de Usuario** : Como usuario registrado, quiero poder iniciar sesión en la aplicación para acceder a mi cuenta de manera segura.`<br>`
+   1.3 **Autorización de Roles** : Como administrador, quiero asignar diferentes roles a los usuarios para controlar el acceso a las distintas funcionalidades de la aplicación.`<br>`
+   1.4 **Recuperación de Contraseña** : Como usuario, quiero poder recuperar mi contraseña en caso de haberla olvidado para no perder el acceso a mi cuenta.`<br>`
+2. **Módulo de Gestión de Tareas** :`<br>`
+   2.1 **Crear Tareas** : Como usuario, quiero poder crear nuevas tareas para gestionar mis actividades.`<br>`
+   2.2 **Actualizar Tareas** : Como usuario, quiero poder actualizar el estado y los detalles de las tareas existentes para mantener un seguimiento preciso de mi progreso.`<br>`
+   2.3 **Eliminar Tareas** : Como usuario, quiero poder eliminar tareas que ya no son relevantes para mantener mi lista de tareas organizada.`<br>`
+   2.4 **Visualizar Progreso de Tareas** : Como usuario, quiero poder visualizar el progreso de mis tareas para tener una visión clara de lo que he completado y lo que aún está pendiente.`<br>`
+3. **Módulo de Reportes** :`<br>`
+   3.1 **Generación de Reportes** : Como usuario de negocios, quiero generar reportes sobre el estado y progreso de las tareas para tomar decisiones informadas.`<br>`
+   3.2 **Visualización de Reportes** : Como usuario, quiero visualizar los reportes generados para entender mejor los datos y las métricas clave.`<br>`
+   3.3 **Exportación de Reportes** : Como usuario, quiero poder exportar los reportes en diferentes formatos (por ejemplo, PDF, Excel) para compartirlos fácilmente con otros interesados.`<br>`
+4. **Módulo de Captura Automática de Itinerarios** :`<br>`
+   4.1 **Captura de Itinerarios** : Como usuario de la agencia de viajes, quiero que el sistema capture automáticamente mis itinerarios utilizando técnicas de inteligencia artificial para ahorrar tiempo y evitar errores manuales.`<br>`
+   4.2 **Asociación de Recursos** : Como administrador de la agencia, quiero que los itinerarios capturados se asocien automáticamente con los recursos disponibles de la organización para una gestión eficiente.`<br>`
+   4.3 **Notificación de Itinerarios** : Como usuario, quiero recibir notificaciones cuando mis itinerarios sean capturados y asociados correctamente para estar al tanto de mis planes de viaje.`<br>`
+   4.4 **Revisión y Corrección de Itinerarios** : Como usuario, quiero tener la opción de revisar y corregir los itinerarios capturados automáticamente para asegurar que toda la información es precisa.`<br>`
