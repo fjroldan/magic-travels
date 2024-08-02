@@ -5,5 +5,5 @@
 A continuación, se presenta el índice de contenido de la documentación de la prueba técnica:
 
 1. [Análisis](https://fjroldan.github.io/magic-travels/analysis "Fase de Análisis")
-2. Planeación y Diseño
-3. Descripción
+2. [Planeación y Diseño] (https://fjroldan.github.io/magic-travels/desing "Fase de Diseño")
+3. [Descripción] (https://fjroldan.github.io/magic-travels/description "Fase de Implementación")
