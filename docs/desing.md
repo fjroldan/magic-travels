@@ -8,11 +8,11 @@ El diseño de microfrontends y microservicios siguiendo el enfoque de Domain-Dri
 
 A continuación, se describe el proceso de diseño adelantado:
 
-1. **Identificación de Bounded Contexts**
+**Identificación de Bounded Contexts**
 
 El primer paso en DDD es identificar los "Bounded Contexts", que son límites dentro de los cuales un dominio específico del negocio opera de manera coherente. Estos contextos están alineados con los subdominios del negocio y sirven para estructurar el sistema en módulos independientes. En este caso, los dominios principales identificados son  **Usuarios** , **Tareas** y  **Reportes** .
 
-2. **División en Microfrontends**
+**División en Microfrontends**
 
 Cada Bounded Context se traduce en funcionalidades específicas que requieren interfaces de usuario dedicadas. Siguiendo la filosofía de microfrontends, dividimos la interfaz en partes independientes que se encargan de aspectos específicos del dominio.
 
@@ -24,7 +24,7 @@ Por ejemplo:
 
 Esta división asegura que cada microfrontend maneja una funcionalidad específica del negocio y puede ser desarrollado, desplegado y mantenido de forma independiente.
 
-3. **Modelado de Microservicios**
+**Modelado de Microservicios**
 
 Siguiendo con DDD, una vez que hemos definido los Bounded Contexts, el siguiente paso es modelar los microservicios que soportan la lógica de negocio detrás de cada contexto. Estos microservicios son responsables de implementar las reglas del negocio, y están diseñados para ser escalables y autónomos.
 
@@ -32,15 +32,15 @@ Siguiendo con DDD, una vez que hemos definido los Bounded Contexts, el siguiente
 * **Tareas** : `tasks-ms-svc` se encarga de las operaciones relacionadas con la gestión de tareas, aplicando las reglas del negocio para crear, modificar y eliminar tareas.
 * **Reportes** : `reports-ms-svc` se ocupa de las operaciones de negocio relacionadas con los reportes, gestionando su creación, edición y consulta.
 
-4. **Interacción entre Microfrontends y Microservicios**
+**Interacción entre Microfrontends y Microservicios**
 
 Cada microfrontend está diseñado para interactuar con su correspondiente microservicio. Por ejemplo, `get-users-mf-svc` interactúa con `users-ms-svc` para obtener la lista de usuarios, mientras que `edit-users-mf-svc` envía solicitudes al mismo servicio para actualizar los datos de un usuario.
 
-5. **Servicio de Base de Datos (db-svc)**
+**Servicio de Base de Datos (db-svc)**
 
 El servicio `db-svc` proporciona una abstracción de la base de datos y es accedido por los microservicios para persistir los datos. Aunque es un componente común, sigue la idea de ser desacoplado, permitiendo la evolución independiente de la capa de datos y las capas de negocio.
 
-6. **Ventajas del Enfoque DDD**
+**Ventajas del Enfoque DDD**
 
 Este enfoque garantiza que cada microfrontend y microservicio esté alineado con un contexto de negocio específico, lo que facilita el mantenimiento y escalabilidad del sistema. Los equipos pueden trabajar en paralelo en diferentes partes del sistema sin interferir entre sí, y los cambios en un microfrontend o microservicio no afectan a los demás.
 
@@ -220,7 +220,6 @@ export class UserService {
   }
 }
 ```
-
 
 El esquema de manejo de errores en la clase `UserService` se implementa mediante el método `handleError`, el cual es utilizado en los métodos que realizan operaciones HTTP, como `saveUser`. En este esquema, cuando una operación HTTP falla, se captura el error utilizando la función `catchError`, que redirige el error al método `handleError` para su procesamiento.
 

@@ -1,4 +1,3 @@
-
 ## Descripción del Entregable
 
 A continuación, se abordan diferentes caracteristicas del entregable.
@@ -119,7 +118,6 @@ export const deleteUser = async (userId) => {
 };
 ```
 
-
 ### Optimización de Aplicaciones
 
 [Nota: corresponde al punto 9]
@@ -132,36 +130,35 @@ He usado la optimización de imágenesdado que es crucial para mejorar el rendim
 
 Estos principios son fundamentales para el diseño de software orientado a objetos y ayudan a crear sistemas que sean fáciles de mantener y extender.
 
-1. **Principio de Responsabilidad Única (SRP)**
+**Principio de Responsabilidad Única (SRP)**
 
 El **Principio de Responsabilidad Única** sostiene que una clase debe tener una, y solo una, razón para cambiar. Esto significa que cada clase debe encargarse de una única responsabilidad o función dentro del sistema. Si una clase tiene múltiples responsabilidades, puede volverse difícil de entender y de mantener, ya que cualquier cambio en una responsabilidad puede afectar a las otras.
 
 Por ejemplo, considera una clase `Empleado` que maneja tanto los detalles del empleado como la generación de reportes de su desempeño. Si decidimos cambiar la forma en que se generan los reportes, también debemos modificar la clase `Empleado`, aunque la funcionalidad del empleado en sí no haya cambiado. Para aplicar el SRP, debemos separar la generación de reportes en una clase diferente, como `GeneradorDeReportes`, permitiendo que `Empleado` maneje exclusivamente los detalles del empleado.
 
-2. **Principio de Abierto/Cerrado (OCP)**
+**Principio de Abierto/Cerrado (OCP)**
 
 El **Principio de Abierto/Cerrado** establece que las entidades de software (como clases, módulos y funciones) deben estar abiertas para la extensión pero cerradas para la modificación. Esto significa que debemos poder agregar nueva funcionalidad a un sistema sin cambiar el código existente, minimizando el riesgo de introducir errores en el código que ya funciona.
 
 Para implementar el OCP, a menudo utilizamos la herencia y la interfaz. Por ejemplo, si tenemos una clase `Factura` que realiza cálculos para diferentes tipos de impuestos, podemos definir una interfaz `CalculadorDeImpuestos` con un método `calcular()`. Luego, creamos clases concretas que implementan esta interfaz para diferentes tipos de impuestos. La clase `Factura` puede usar esta interfaz para calcular impuestos sin saber exactamente qué tipo de calculador se está utilizando, permitiendo agregar nuevos tipos de impuestos sin modificar la clase `Factura`.
 
-3. **Principio de Sustitución de Liskov (LSP)**
+**Principio de Sustitución de Liskov (LSP)**
 
 El **Principio de Sustitución de Liskov** establece que los objetos de una clase derivada deben poder sustituir a los objetos de la clase base sin alterar el funcionamiento del programa. En otras palabras, una clase derivada debe ser sustituible por su clase base sin causar errores o comportamientos inesperados.
 
 Para seguir el LSP, una clase derivada debe extender la funcionalidad de la clase base sin cambiar su comportamiento esperado. Por ejemplo, si tenemos una clase `Vehículo` con un método `mover()`, y una clase derivada `Bicicleta` que sobrescribe `mover()`, `Bicicleta` debe comportarse de manera que no rompa las expectativas establecidas por la clase `Vehículo`. Si la clase `Bicicleta` introdujera un comportamiento inesperado o no implementara correctamente el método `mover()`, violaría el LSP.
 
-4. **Principio de Segregación de Interfaces (ISP)**
+**Principio de Segregación de Interfaces (ISP)**
 
 El **Principio de Segregación de Interfaces** sostiene que es mejor tener varias interfaces específicas en lugar de una interfaz general. Este principio asegura que las clases no se vean obligadas a implementar métodos que no utilizan, lo que facilita el mantenimiento y evita la implementación de métodos innecesarios.
 
 Por ejemplo, si tenemos una interfaz `Imprimible` con métodos como `imprimir()`, `escanear()`, y `fax()`, y una clase `Impresora` que solo necesita implementar `imprimir()`, pero no `escanear()` o `fax()`, `Impresora` estaría obligada a implementar métodos que no necesita, violando el ISP. En su lugar, deberíamos dividir `Imprimible` en interfaces más específicas, como `Impresora` con el método `imprimir()`, `Escaner` con el método `escanear()`, y así sucesivamente.
 
-5. **Principio de Inversión de Dependencias (DIP)**
+**Principio de Inversión de Dependencias (DIP)**
 
 El **Principio de Inversión de Dependencias** establece que las dependencias deben ser sobre abstracciones (interfaces o clases abstractas) y no sobre implementaciones concretas. Además, las abstracciones no deben depender de los detalles, sino que los detalles deben depender de las abstracciones. Esto facilita la flexibilidad y la reutilización del código al desacoplar las clases de sus dependencias concretas.
 
 Por ejemplo, si una clase `Controlador` depende directamente de una clase concreta `ServicioDeDatos`, cualquier cambio en `ServicioDeDatos` afectará a `Controlador`. Para aplicar el DIP, podemos definir una interfaz `Servicio` que `ServicioDeDatos` implementa, y `Controlador` dependerá de la interfaz `Servicio`, no de la implementación concreta. Esto permite cambiar la implementación concreta de `Servicio` sin modificar `Controlador`, siempre y cuando la nueva implementación cumpla con la interfaz `Servicio`.
-
 
 ### Administrador de Versiones GIT
 
@@ -169,26 +166,27 @@ Por ejemplo, si una clase `Controlador` depende directamente de una clase concre
 
 Resolver conflictos de fusión en un repositorio Git es una parte crucial del proceso de integración de cambios en proyectos colaborativos. Aquí se detalla un ejercicio práctico para gestionar estos conflictos:
 
-1. **Identificar el Conflicto** : Los conflictos de fusión ocurren cuando Git no puede reconciliar las diferencias entre dos ramas. Esto generalmente sucede al intentar fusionar una rama (como `feature-branch`) con otra (como `main`). Git marcará los archivos conflictivos y detendrá el proceso de fusión.
-2. **Verificar los Conflictos** : Después de ejecutar `git merge feature-branch` en la rama `main`, usa `git status` para identificar los archivos en conflicto. Git indicará estos archivos con un mensaje como “unmerged paths”.
-3. **Resolver los Conflictos Manualmente** :
+**Identificar el Conflicto** : Los conflictos de fusión ocurren cuando Git no puede reconciliar las diferencias entre dos ramas. Esto generalmente sucede al intentar fusionar una rama (como `feature-branch`) con otra (como `main`). Git marcará los archivos conflictivos y detendrá el proceso de fusión.
+
+**Verificar los Conflictos** : Después de ejecutar `git merge feature-branch` en la rama `main`, usa `git status` para identificar los archivos en conflicto. Git indicará estos archivos con un mensaje como “unmerged paths”.
+
+**Resolver los Conflictos Manualmente** :
 
 * Abre los archivos conflictivos en un editor de texto. Git insertará marcadores de conflicto (`<<<<<<<`, `=======`, `>>>>>>>`) para mostrar las diferencias entre las versiones en conflicto.
 * Examina las secciones delimitadas por los marcadores. El contenido entre `<<<<<<< HEAD` y `=======` representa la versión de la rama actual (`main`), mientras que el contenido entre `=======` y `>>>>>>> feature-branch` representa la versión de la rama fusionada (`feature-branch`).
 * Edita el archivo para integrar los cambios de manera adecuada, eliminando los marcadores de conflicto y asegurándote de que el archivo final tenga el contenido correcto.
 
-1. **Marcar el Conflicto como Resuelto** :
+**Marcar el Conflicto como Resuelto** :
 
 * Una vez que hayas resuelto todos los conflictos, guarda los archivos modificados y utiliza `git add <archivo>` para marcar los archivos como resueltos.
 * Completa la fusión con `git commit`, que crea un nuevo commit de fusión.
 
-1. **Verificar y Probar** :
+**Verificar y Probar** :
 
 * Revisa el estado del repositorio con `git log` y asegúrate de que todos los cambios estén como se esperaba.
 * Ejecuta pruebas para confirmar que la integración de cambios no ha introducido errores.
 
 Este proceso asegura que las integraciones sean limpias y que el código base se mantenga funcional y coherente.
-
 
 ### Metodologías Ágiles
 
